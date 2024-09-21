@@ -31,17 +31,14 @@ def sh(cmd):
     return out, err
 
 
-def fwrite(file, date):
-    f = open(file, "w")
-    f.write(date)
-    f.close()
+def fwrite(file, data):
+    with open(file, "w", encoding='utf-8') as f:
+        f.write(data)
 
 
 def fread(file):
-    f = open(file, "r")
-    readed = str(f.read().strip())
-    f.close()
-
+    with open(file, "r", encoding='utf-8') as f:
+        readed = f.read().strip()
     return readed
 
 
